@@ -34,6 +34,43 @@ class BST:
 
             addToTree(self.root)
 
+    
+    def remove(self, data):
+        def removeNode(node, data):
+            if not node:
+                return None
+
+            if data is node.data:
+
+                if not node.left and not node.right:
+                    return None
+
+                if not node.left:
+                    return node.right
+
+                if not node.right:
+                    return node.left
+
+                else:
+                    temp = node.right
+                    while(temp.left):
+                        temp = temp.left
+                    node.data = temp.data;
+                    node.right = removeNode(node.right, temp.data)
+                    return node
+
+            else:
+                if data < node.data:
+                    node.left = removeNode(node.left, data)
+                    return node
+
+                else:
+                    node.right = removeNode(node.right, data)
+                    return node
+
+        removeNode(self.root, data)
+
+
     def printTree(self):
         current_level = [self.root]
         tree_array = []
@@ -72,6 +109,8 @@ myBST.root = myBST.sortedArrayToBST(arr, 0, len(arr))
 # myBST.add(3)
 # myBST.add(5)
 # myBST.add(7)
+
+myBST.remove(16)
 tree = myBST.printTree()
 
 print("Is BST?")
