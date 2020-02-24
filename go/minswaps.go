@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -41,10 +40,4 @@ func minimumSwaps(arr []int32) int32 {
 	}
 
 	return int32(ans)
-}
-
-func main() {
-	t1 := []int32{1, 5, 4, 3, 2}
-	r1 := minimumSwaps(t1)
-	fmt.Printf("%d \n", r1)
 }
