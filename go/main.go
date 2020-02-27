@@ -24,4 +24,14 @@ func main() {
 	nPairs := sockMerchant(9, arr)
 	fmt.Printf("%d \n", nPairs)
 
+	// arrayManipulation
+	fmt.Printf("arrayManipulation \n")
+	rr1 := []int32{1, 5, 3}
+	rr2 := []int32{4, 8, 7}
+	rr3 := []int32{6, 9, 1}
+	queries := [][]int32{rr1, rr2, rr3}
+
+	res := arrayManipulation(10, queries)
+	fmt.Printf("%d \n", res)
+
 }
